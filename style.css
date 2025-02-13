@@ -195,7 +195,7 @@ header.scrolled {
 
 .navbar-btn {
     outline: 0;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     background: #489bdf00;
@@ -228,6 +228,11 @@ header.scrolled {
     border-radius: 100%;
 }
 
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+}
+
 .navbar-nav a {
     text-decoration: none;
     font-size: 18px;
@@ -250,6 +255,42 @@ header.scrolled {
 .navbar-nav a:hover {
     color: #1bdfc4;
     text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .navbar-nav.active {
+        display: flex;
+    }
+
+    .navbar-nav a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
 }
 
 .home {
@@ -636,7 +677,7 @@ button {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     margin-right: 20px;
 }
 
@@ -670,14 +711,12 @@ button {
 }
 
 .Project .tittle {
+    margin: 0 0 20px 0; 
     font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     border-bottom: 2px solid #b60000;
     padding-bottom: 5px;
     display: inline-block;
+    color: #333;
 }
 
 .Project .projects {
@@ -768,6 +807,74 @@ button {
         max-width: 350px;
     }
 }
+
+.Experience {
+    padding: 50px 0;
+    background-color: #f8f9fa00;
+    text-align: center;
+}
+
+.Experience h1 {
+    margin: 0 0 10  px 0; 
+    font-size: 2.5rem;
+    border-bottom: 2px solid #b60000;
+    padding-bottom: 5px;
+    display: inline-block;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.experience-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.experience-item {
+    background: rgba(255, 255, 255, 0.39);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px; 
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 50px;
+}
+
+.experience-item:hover {
+    transform: scale(1.05);
+}
+
+.experience-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.experience-content h2 {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.experience-content h4 {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.experience-content p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+
 
 .Contact {
     background-color: #f4f4f400;
